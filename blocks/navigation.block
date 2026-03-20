@@ -14,7 +14,7 @@
           {.repeated section items}
           {.collection?}
           <li class="{.section active} active-link{.end}">
-            <a href="{collection.fullUrl} dropdown-item">{collection.navigationTitle}</a>
+            <a href="{collection.fullUrl}" class="dropdown-item">{collection.navigationTitle}</a>
           </li>
           <li>
             <hr class="dropdown-divider">

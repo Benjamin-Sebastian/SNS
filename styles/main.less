@@ -1,21 +1,33 @@
 #headerNav {
     height: 100%;
+    
+    .navbar, .navbar-nav {
+        height: 100%; // Ensure the nav fills the header height
+    }
+
     .navbar-nav {
-        .dropdown-menu {
-            margin-top: 0 !important;
-            border-top: none;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-        }
+        align-items: stretch; // This makes the LI span from top to bottom
 
         .nav-item {
-            &.dropdown .dropdown-menu.show {
-                top: 100% !important;
-                left: 0;
-                display: block;
+            display: flex;
+            align-items: center; // Keeps the text centered vertically
+            
+            &.dropdown {
+                position: relative; // Context for the absolute dropdown
             }
 
-            &:last-child .dropdown-menu.show {
+            .dropdown-menu {
+                margin-top: 0 !important;
+                border-top: none;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                
+                // This will now be 100% of the header height
+                top: 100% !important; 
+                left: 0;
+            }
+
+            &:last-child .dropdown-menu {
                 left: auto !important;
                 right: 0 !important;
             }
