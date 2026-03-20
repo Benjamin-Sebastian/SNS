@@ -1,37 +1,41 @@
-<nav class="main-nav">
-  <ul>
+<nav class="navbar navbar-expand-sm">
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
     {.repeated section items}
     <li class="{.section active} active-link{.end}
-      {.if folderActive} active-link active-folder{.end}">
+      {.if folderActive} active-link active-folder{.end} nav-item">
 
       {.folder?}
 
-        <a>{collection.navigationTitle}</a>
-          <ul class="subnav">
-            {.repeated section items}
-              {.collection?}
-                <li class="{.section active} active-link{.end}">
-                  <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
-                </li>
-              {.end}
-              {.section externalLink}
-                <li class="external-link">
-                  <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
-                </li>
-              {.end}
-            {.end}
-          </ul>
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">{collection.navigationTitle}</a>
+        <ul class="subnav dropdown-menu">
+          {.repeated section items}
+          {.collection?}
+          <li class="{.section active} active-link{.end}">
+            <a href="{collection.fullUrl} dropdown-item">{collection.navigationTitle}</a>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          {.end}
+          {.section externalLink}
+          <li class="external-link">
+            <a href="{url}" {.section newWindow} target="_blank" {.end}>{title}</a>
+          </li>
+          {.end}
+          {.end}
+        </ul>
+      </div>
 
       {.or}
 
-        {.section collection}
-          <a href="{fullUrl}">{navigationTitle}</a>
-        {.end}
+      {.section collection}
+      <a href="{fullUrl}">{navigationTitle}</a>
+      {.end}
 
-        {.section externalLink}
-          <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
-        {.end}
+      {.section externalLink}
+      <a href="{url}" {.section newWindow} target="_blank" {.end}>{title}</a>
+      {.end}
 
       {.end}
 
