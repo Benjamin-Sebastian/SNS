@@ -31,17 +31,7 @@
           {.end}
         </div>{.end}<!--
           -->
-        <div>
-          <div class="top-bar"></div>
-          <div class="middle-bar"></div>
-          <div class="bottom-bar"></div>
-        </div>
-        <div class="fixed-nav-toggle">
-          <div class="top-bar"></div>
-          <div class="middle-bar"></div>
-          <div class="bottom-bar"></div>
-        </div><!--
-          -->
+
         <div id="headerNav">
           <squarespace:navigation navigationId="mainNav" template="navigation" />
         </div>
