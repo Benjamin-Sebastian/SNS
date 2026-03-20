@@ -1,15 +1,21 @@
 .navbar-nav {
   .dropdown-menu {
-    top: 100% !important;
     margin-top: 0 !important;
+    border-top: none;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
 
-  li:last-child {
-    .dropdown-menu {
-      right: 0;
-      left: auto;
+  .nav-item {
+    &.dropdown .dropdown-menu.show {
+      top: 100% !important;
+      left: 0;
+      display: block;
+    }
+
+    &:last-child .dropdown-menu.show {
+      left: auto !important;
+      right: 0 !important;
     }
   }
 }
