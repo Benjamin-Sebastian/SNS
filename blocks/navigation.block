@@ -9,14 +9,16 @@
 
       <div class="dropdown">
         <a class="nav-link dropdown-toggle py-1" href="#" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false">{collection.navigationTitle}</a>
+          data-bs-display="static" aria-expanded="false">{collection.navigationTitle}</a>
         <ul class="subnav dropdown-menu m-0 shadow-sm">
           {.repeated section items}
           {.collection?}
           <li class="{.section active} active-link{.end}">
             <a href="{collection.fullUrl} dropdown-item">{collection.navigationTitle}</a>
           </li>
-          <li><hr class="dropdown-divider"></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
           {.end}
           {.section externalLink}
           <li class="external-link">
