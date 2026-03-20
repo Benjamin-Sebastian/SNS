@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm">
-  <ul class="navbar-nav me-5 mb-2 mb-lg-0">
+  <ul class="navbar-nav w-100 justify-content-between mb-2 mb-lg-0">
 
     {.repeated section items}
     <li class="{.section active} active-link{.end}
