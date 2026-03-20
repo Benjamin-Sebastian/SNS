@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm py-0">
-  <ul class="navbar-nav w-100 justify-content-between align-items-center mb-0">
+  <ul class="navbar-nav w-100 justify-content-between align-items-center mb-0 px-4">
 
     {.repeated section items}
     <li class="{.section active} active-link{.end}
@@ -10,7 +10,7 @@
       <div class="dropdown">
         <a class="nav-link dropdown-toggle py-1" href="#" role="button" data-bs-toggle="dropdown"
           aria-expanded="false">{collection.navigationTitle}</a>
-        <ul class="subnav dropdown-menu">
+        <ul class="subnav dropdown-menu px-4">
           {.repeated section items}
           {.collection?}
           <li class="{.section active} active-link{.end}">
