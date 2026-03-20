@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-sm">
-  <ul class="navbar-nav w-100 justify-content-between mb-2 mb-lg-0">
+<nav class="navbar navbar-expand-sm py-0">
+  <ul class="navbar-nav w-100 justify-content-between align-items-center mb-0">
 
     {.repeated section items}
     <li class="{.section active} active-link{.end}
@@ -8,7 +8,7 @@
       {.folder?}
 
       <div class="dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+        <a class="nav-link dropdown-toggle py-1" href="#" role="button" data-bs-toggle="dropdown"
           aria-expanded="false">{collection.navigationTitle}</a>
         <ul class="subnav dropdown-menu">
           {.repeated section items}
@@ -30,11 +30,11 @@
       {.or}
 
       {.section collection}
-      <a href="{fullUrl}">{navigationTitle}</a>
+      <a class="nav-link py-1" href="{fullUrl}">{navigationTitle}</a>
       {.end}
 
       {.section externalLink}
-      <a href="{url}" {.section newWindow} target="_blank" {.end}>{title}</a>
+      <a class="nav-link py-1" href="{url}" {.section newWindow} target="_blank" {.end}>{title}</a>
       {.end}
 
       {.end}
