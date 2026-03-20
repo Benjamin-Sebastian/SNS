@@ -1,8 +1,5 @@
-:root {
-  --header-height: 80px; // match your actual header height
-}
 #headerNav {
-    height: 100%;
+    --header-height: 100%;
 
     .navbar-nav {
         .dropdown-menu {
@@ -10,11 +7,6 @@
             border-top: none;
             border-top-left-radius: 0;
             border-top-right-radius: 0;
-
-            top: 100% !important;
-
-            // shift upward so it aligns with bottom of header
-            transform: translateY(calc(-1 * (100% - var(--header-height)))) !important;
         }
 
         .nav-item {
@@ -22,7 +14,11 @@
                 top: 100% !important;
                 left: 0;
                 display: block;
+                transform: translateY(calc(-1 * (100% - var(--header-height)))) !important;
+
             }
+
+
 
             &:last-child .dropdown-menu.show {
                 left: auto !important;
