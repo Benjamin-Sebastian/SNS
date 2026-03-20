@@ -1,34 +1,24 @@
-// // Suggested Variables
+#headerNav {
+    height: 100%;
+    .navbar-nav {
+        .dropdown-menu {
+            margin-top: 0 !important;
+            border-top: none;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
 
-// .main-nav {
-//     width: 100%;
+        .nav-item {
+            &.dropdown .dropdown-menu.show {
+                top: 100% !important;
+                left: 0;
+                display: block;
+            }
 
-
-//     ul {
-//         display: grid;
-//         grid-auto-flow: column;
-//         grid-auto-columns: 1fr;
-//         list-style: none;
-//         margin: 0;
-//         padding: 0;
-
-//         li {
-//             text-align: center;
-//             cursor: pointer;
-
-//             .subnav {
-//                 display: none;
-//             }
-
-//             &.open {
-//                 >.subnav {
-//                     display: block;
-//                 }
-//             }
-//         }
-//     }
-
-//     .nav-folder {
-//         display: none;
-//     }
-// }
+            &:last-child .dropdown-menu.show {
+                left: auto !important;
+                right: 0 !important;
+            }
+        }
+    }
+}
