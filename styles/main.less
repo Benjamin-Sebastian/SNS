@@ -1,42 +1,13 @@
-#header {
-  position: relative;
-  z-index: 1000;
-}
-
 #headerNav {
-  height: 100%;
+  .dropdown-menu {
+    margin-top: 0 !important;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 
-  .navbar,
-  .navbar-nav {
-    height: 100%;
-  }
+    top: 100% !important;
 
-  .navbar-nav {
-    align-items: stretch;
-
-    .nav-item {
-      display: flex;
-      align-items: center;
-      position: static; // important: don't anchor menu to the item itself
-    }
-
-    .dropdown {
-      position: static; // let the menu align to the header instead
-    }
-
-    .dropdown-menu {
-      position: absolute;
-      top: 100% !important;   // directly below the header bar
-      left: 0;
-      margin-top: 0 !important;
-      transform: none !important;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
-
-    .nav-item:last-child .dropdown-menu {
-      left: auto !important;
-      right: 0 !important;
-    }
+    // shift upward so it aligns with bottom of header
+    transform: translateY(calc(-1 * (100% - var(--header-height)))) !important;
   }
 }
