@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-sm py-auto">
-  <ul class="navbar-nav w-100 justify-content-between align-items-center mb-0 px-4">
-
+  <ul class="navbar-nav w-100 justify-content-between mb-0 px-4">
     {.repeated section items}
     <li class="{.section active} active-link{.end}
       {.if folderActive} active-link active-folder{.end} nav-item position-relative">
