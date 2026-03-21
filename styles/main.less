@@ -15,6 +15,25 @@
     }
 }
 
-html, body, #siteWrapper {
+html,
+body,
+#siteWrapper {
     overflow: visible !important;
+}
+
+#header {
+    position: sticky !important;
+    top: 0;
+    z-index: 1020;
+    // Counteract any show-on-scroll JS transform/opacity tricks
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    &.shrink,
+    &.hidden,
+    &.invisible {
+        position: sticky !important;
+        opacity: 1 !important;
+    }
 }
