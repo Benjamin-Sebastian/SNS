@@ -18,9 +18,7 @@
   class="{squarespace.page-classes}{.if item}{.section item}{.if productType}{.or}{.background-source-video?} has-banner-image item-main-image{.or}{.main-image?} has-banner-image item-main-image{.end}{.end}{.end}{.end}{.or}{.section collection}{.collectionTypeNameEquals? index}{.section collections}{.section 0}{.background-source-video?} has-banner-image index-page{.or}{.main-image?} has-banner-image index-page{.end}{.end}{.end}{.end}{.or}{.background-source-video?} has-banner-image general-page{.or}{.main-image?} has-banner-image general-page{.end}{.end}{.end}{.end}{.end}">
   <div class="body-overlay"></div>
   <div class="sqs-announcement-bar-dropzone"></div>
-  <div id="sidecarNav">
-    <squarespace:navigation navigationId="mainNav" />
-  </div>
+
   <div id="siteWrapper" class="clearfix">
 
     <div class="sqs-cart-dropzone"></div>
@@ -260,7 +258,7 @@
         </nav>
       </div>{.end}{.end}<!--
         -->{.collectionTypeNameEquals? page}<!--
-        --><squarespace:folder-navigation template="folder-navigation" />{.end}{.end}<!--
+        -->{.end}{.end}<!--
         -->
       <div id="content" class="main-content" data-content-field="main-content" data-collection-id="{collection.id}"
         {.equal? collection.typeName "gallery" }{.or}{.equal? collection.typeName "index"
