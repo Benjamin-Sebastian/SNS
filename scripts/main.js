@@ -20,6 +20,10 @@ document.addEventListener('shown.bs.dropdown', function (e) {
         menu.style.left  = toggleRect.left + 'px';
         menu.style.right = 'auto';
     }
+    const arrows = document.getElementsByClassName("arrow");
+    arrows.forEach(arrow => {
+        arrow.content = "&darr"
+    });
 });
 
 document.addEventListener('hidden.bs.dropdown', function (e) {
@@ -34,4 +38,8 @@ document.addEventListener('hidden.bs.dropdown', function (e) {
     menu.style.left      = '';
     menu.style.right     = '';
     menu.style.transform = '';
+    const arrows = document.getElementsByClassName("arrow");
+    arrows.forEach(arrow => {
+        arrow.content = "&uarr"
+    });
 });
