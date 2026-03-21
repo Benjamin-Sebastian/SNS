@@ -1,5 +1,9 @@
 #headerNav {
     .navbar-nav {
+        .nav-link[expanded="true"]>span {
+            border-top: 0px !important;
+            border-bottom: 4px dashed !important;
+        }
 
         .dropdown-menu {
             margin-top: 0 !important;
@@ -8,9 +12,4 @@
             border-top-right-radius: 0;
         }
     }
-}
-
-li.open>a>span {
-    border-top: 0px !important;
-    border-bottom: 4px dashed !important;
 }
