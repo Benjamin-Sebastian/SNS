@@ -1,14 +1,16 @@
 #headerNav {
     .navbar-nav {
-        .dropdown-toggle::after {
-            display: none !important;
+        .dropdown-toggle {
+
+            &::after {
+                display: none !important;
+            }
         }
 
         .dropdown-menu {
             margin-top: 0 !important;
             border-top: none;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
+            border-radius: 0 0 4px 4px; // Concise way to set top-left/right to 0
         }
     }
 }
