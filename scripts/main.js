@@ -22,7 +22,7 @@ document.addEventListener('shown.bs.dropdown', function (e) {
     }
     var arrows = document.getElementsByClassName("arrow");
     for (var i = 0; i < arrows.length; i++) {
-        arrows[i].innerText = "&uarr;";
+        arrows[i].innerText = "\u{2191}";
     }
 });
 
@@ -40,6 +40,6 @@ document.addEventListener('hidden.bs.dropdown', function (e) {
     menu.style.transform = '';
     var arrows = document.getElementsByClassName("arrow");
     for (var i = 0; i < arrows.length; i++) {
-        arrows[i].innerText = "&darr;";
+        arrows[i].innerText = "\u{2193}";
     }
 });
