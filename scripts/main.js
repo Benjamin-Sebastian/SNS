@@ -1,11 +1,11 @@
-const header = document.querySelector('#header');
+// const header = document.querySelector('#header');
 
-function setHeaderHeight() {
-  document.documentElement.style.setProperty(
-    '--header-height',
-    `${header.offsetHeight}px`
-  );
-}
+// function setHeaderHeight() {
+//   document.documentElement.style.setProperty(
+//     '--header-height',
+//     `${header.offsetHeight}px`
+//   );
+// }
 
-setHeaderHeight();
-window.addEventListener('resize', setHeaderHeight);
+// setHeaderHeight();
+// window.addEventListener('resize', setHeaderHeight);
