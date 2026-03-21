@@ -25,7 +25,7 @@
 
     <div class="sqs-cart-dropzone"></div>
 
-    <header id="header" class="show-on-scroll sticky-top" data-offset-el=".index-section" data-offset-behavior="bottom"
+    <header id="header" class="sticky-top" data-offset-el=".index-section" data-offset-behavior="bottom"
       role="banner">
       <div class="header-inner">
         {.section website}<div id="{.if logoImageUrl}logoWrapper{.or}siteTitleWrapper{.end}" class="wrapper"
