@@ -1,27 +1,10 @@
-#header {
-    position: relative;   // new positioning context for the menus
-    overflow: visible !important; // don't clip the dropdown that escapes headerNav
-}
-
 #headerNav {
     .navbar-nav {
-        .dropdown {
-            position: static; // breaks Bootstrap's default context; menu now anchors to #header
-        }
         .dropdown-menu {
             margin-top: 0 !important;
             border-top: none;
             border-top-left-radius: 0;
             border-top-right-radius: 0;
-
-            &.show {
-                top: 100% !important;    // 100% of #header height → flush below header
-                transform: none !important;
-            }
-        }
-        .nav-item:last-child .dropdown-menu.show {
-            left: auto !important;
-            right: 0 !important;
         }
     }
 }
