@@ -79,71 +79,41 @@ body,
     }
 }
 
-// --- Footer Tree Navigation ---
-.footer-nav {
-    .folder-head {
-        pointer-events: none;
+// --- Footer Layout Adjustments ---
+
+.footer-inner {
+    padding: 40px 0;
+    
+    // Remove the universal fit-content rule that breaks layout
+    // Instead, target only the text/links if needed
+    .footer-nav-col, .footer-logo-col {
+        width: auto; // Allow columns to function normally
     }
 
-    ul {
-        list-style: none;
-        margin: 0;
-        padding-left: 1.5em;
-        position: relative;
-    }
-
-    .subnav {
-        position: relative;
-
-        li {
-            position: relative;
-            padding-left: 10px;
-
-            // 1. The Vertical Spine
-            &::before {
-                content: '';
-                position: absolute;
-                left: -1em;
-                top: 0;
-                width: 1px;
-                height: 100%;
-                background: @tree-line-color;
-            }
-
-            // 2. The Horizontal Branch
-            &::after {
-                content: '';
-                position: absolute;
-                left: -1em;
-                top: 0.8em;
-                width: 10px;
-                height: 1px;
-                background: @tree-line-color;
-            }
-
-            // 3. Last Child / Divider Logic
-            &:last-child::before {
-                height: 0.8em; // Shorten spine
-            }
-
-            // Modern CSS :has selectors nested for clarity
-            &:has(.dropdown-divider) {
-
-                &::before,
-                &::after {
-                    display: none;
-                }
-            }
-
-            &:has(+ li .dropdown-divider)::before {
-                height: 0.8em;
-            }
-        }
+    #logoImage img {
+        max-width: 200px; // Ensure logo doesn't overwhelm the column
+        height: auto;
+        display: block;
     }
 }
 
-.footer-inner {
-    * {
-        width: fit-content;
+// Ensure the nav links still look like buttons/links
+.footer-nav .nav-link {
+    width: fit-content; 
+}
+
+// Adjusting the tree lines for the new column context
+.footer-nav .subnav {
+    padding-left: 1.5rem;
+    
+    li::before {
+        left: -1em;
     }
+}
+
+// Optional: Vertical line between logo and nav
+.footer-logo-col {
+    border-right: 1px solid #eee; 
+    padding-right: 20px;
+    margin-right: 20px;
 }
