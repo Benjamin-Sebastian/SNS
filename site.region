@@ -293,7 +293,7 @@
             <h1 id="siteTitle" class="site-title"><a href="/">{siteTitle}</a></h1>
             {.end}
           </div>
-          <h1 class="footer-site-name">{siteTitle}</p>
+          <h2 class="footer-site-name">{siteTitle}</h2>
           {.end}
           <div class="footer-contact">
             <squarespace:block-field id="footerContactInfo" columns="12" label="Footer Contact Info" />
