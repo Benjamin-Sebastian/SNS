@@ -8,7 +8,7 @@
 
       <div>
         <a class="nav-link py-1 folder-head" href="#" role="button"
-          data-bs-display="static" aria-expanded="false">{collection.navigationTitle}</main>
+          data-bs-display="static" aria-expanded="false">{collection.navigationTitle}
         </a>
         <ul class="subnav px-4">
           {.repeated section items}
