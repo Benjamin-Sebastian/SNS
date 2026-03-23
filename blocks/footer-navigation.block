@@ -7,10 +7,10 @@
       {.folder?}
 
       <div>
-        <a class="nav-link py-1" href="#" role="button"
-          data-bs-display="static" aria-expanded="false">{collection.navigationTitle} <span class="arrow">&darr;</main>
-        </a>
-        <ul class="subnav dropdown-menu px-4">
+        <p class="nav-link py-1" role="button"
+          data-bs-display="static" aria-expanded="false">{collection.navigationTitle}</main>
+      </p>
+        <ul class="subnav px-4">
           {.repeated section items}
           {.collection?}
           <li class="{.section active} active-link{.end}">
