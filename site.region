@@ -281,7 +281,7 @@
     </div>
 
     <footer id="footer" role="contentinfo">
-      <squarespace:navigation navigationId="footerNav" template="footer-navigation" />
+      <squarespace:navigation navigationId="mainNav" template="footer-navigation" />
     </footer>
 
   </div>
