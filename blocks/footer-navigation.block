@@ -7,7 +7,7 @@
       {.folder?}
 
       <a class="nav-link py-1 folder-head" href="#">{collection.navigationTitle}</a>
-      <ul class="subnav px-0">
+      <ul class="subnav">
         {.repeated section items}
         {.collection?}
         <li class="{.section active} active-link{.end}">
