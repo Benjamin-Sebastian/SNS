@@ -64,35 +64,50 @@ body,
         position: relative;
     }
 
-    .subnav li {
+   .subnav li {
         position: relative;
         padding-left: 10px;
     }
 
-    /* The vertical line connecting items */
+    /* 1. The Vertical Spine */
     .subnav li::before {
         content: '';
         position: absolute;
-        left: -1em;      /* Move to the left of the text */
+        left: -1em;
         top: 0;
         width: 1px;
-        height: 100%;    /* Span the full height of the LI */
+        height: 100%; /* Default: connect to the item below */
         background: #999;
     }
 
-    /* The horizontal "L" branch */
+    /* 2. The Horizontal Branch */
     .subnav li::after {
         content: '';
         position: absolute;
         left: -1em;
-        top: 0.75em;     /* Align with the middle of the first line of text */
+        top: 0.8em; /* Centers the branch on the text */
         width: 10px;
         height: 1px;
         background: #999;
     }
 
-    /* Remove the trailing vertical line from the last item */
+    /* 3. FIX: Hide lines for the divider items */
+    /* This targets the <li> that contains the <hr> */
+    .subnav li:has(.dropdown-divider)::before,
+    .subnav li:has(.dropdown-divider)::after {
+        display: none;
+    }
+
+    /* 4. FIX: Shorten the spine on the last ACTUAL link */
+    /* If your browser doesn't support :has, we target the last-child 
+       and ensure the line stops at the branch */
     .subnav li:last-child::before {
-        height: 0.75em;  /* Cuts the line off at the last branch */
+        height: 0.8em; 
+    }
+
+    /* 5. Cleanup: If a divider is the last item, 
+       make the item BEFORE it also stop its line early */
+    .subnav li:has(+ li .dropdown-divider)::before {
+        height: 0.8em;
     }
 }
