@@ -1,22 +1,24 @@
 // --- Variables: Colors ---
-@brand-gold:        #FFD700;
-@brand-gold-hover:  #FFC400;
-@footer-bg:         #1a1a1a;
-@footer-text:       #cccccc;
-@tree-line-color:   #999;
-@white:             #ffffff;
-@black:             #000000;
-@shadow-color:      rgba(0, 0, 0, 0.1);
+@brand-gold: #FFD700;
+@brand-gold-hover: #FFC400;
+@footer-bg: #1a1a1a;
+@footer-text: #cccccc;
+@tree-line-color: #999;
+@white: #ffffff;
+@black: #000000;
+@shadow-color: rgba(0, 0, 0, 0.1);
 
 // --- Variables: Sizes & Transitions ---
-@logo-max-width:    220px;
-@footer-max-width:  1200px;
-@border-radius:     4px;
-@cta-radius:        50px;
-@transition-base:   all 0.3s ease;
+@logo-max-width: 10vw;
+@footer-max-width: 1200px;
+@border-radius: 4px;
+@cta-radius: 50px;
+@transition-base: all 0.3s ease;
 
 // --- Global Overrides ---
-html, body, #siteWrapper {
+html,
+body,
+#siteWrapper {
     max-width: 100%;
     overflow-x: clip !important; // Prevents horizontal scroll while preserving sticky headers
 }
@@ -30,7 +32,9 @@ html, body, #siteWrapper {
     opacity: 1 !important;
     visibility: visible !important;
 
-    &.shrink, &.hidden, &.invisible {
+    &.shrink,
+    &.hidden,
+    &.invisible {
         position: sticky !important;
         opacity: 1 !important;
     }
@@ -41,7 +45,8 @@ html, body, #siteWrapper {
     .navbar-nav {
         align-items: center;
 
-        .nav-item, .dropdown {
+        .nav-item,
+        .dropdown {
             display: flex;
             align-items: center;
         }
@@ -75,7 +80,9 @@ html, body, #siteWrapper {
                 font-weight: bold;
                 text-decoration: none !important;
 
-                u::after { display: none; }
+                u::after {
+                    display: none;
+                }
             }
         }
     }
@@ -91,7 +98,7 @@ footer#footer {
 
 .footer-inner {
     display: grid !important;
-    grid-template-columns: auto 1fr; 
+    grid-template-columns: auto 1fr;
     align-items: center;
     gap: 2rem;
     width: 100%;
@@ -109,7 +116,9 @@ footer#footer {
     flex-shrink: 0;
     white-space: nowrap;
 
-    * { width: fit-content; }
+    * {
+        width: fit-content;
+    }
 
     #logoImage img {
         max-width: @logo-max-width;
@@ -133,7 +142,10 @@ footer#footer {
         a {
             color: @footer-text;
             text-decoration: none;
-            &:hover { color: @white; }
+
+            &:hover {
+                color: @white;
+            }
         }
 
         .sqs-block {
@@ -162,7 +174,10 @@ footer#footer {
             padding: 0;
         }
 
-        .folder-head, .nav-link, .dropdown-item, .subnav a {
+        .folder-head,
+        .nav-link,
+        .dropdown-item,
+        .subnav a {
             white-space: nowrap;
         }
 
@@ -183,11 +198,13 @@ footer#footer {
 
         .subnav {
             position: relative;
+
             li {
                 position: relative;
                 padding-left: 10px;
 
-                &::before { // Vertical spine
+                &::before {
+                    // Vertical spine
                     content: '';
                     position: absolute;
                     left: -1em;
@@ -197,7 +214,8 @@ footer#footer {
                     background: @tree-line-color;
                 }
 
-                &::after { // Horizontal branch
+                &::after {
+                    // Horizontal branch
                     content: '';
                     position: absolute;
                     left: -1em;
@@ -218,7 +236,7 @@ footer#footer {
                 }
             }
         }
-        
+
         // Footer CTA styling
         .nav-item:last-child {
             background-color: @brand-gold;
@@ -237,7 +255,10 @@ footer#footer {
                 color: @black !important;
                 font-weight: bold;
                 text-decoration: none !important;
-                u::after { display: none; }
+
+                u::after {
+                    display: none;
+                }
             }
         }
     }
@@ -245,6 +266,9 @@ footer#footer {
     a {
         color: @footer-text;
         text-decoration: none;
-        &:hover { color: @white; }
+
+        &:hover {
+            color: @white;
+        }
     }
 }
