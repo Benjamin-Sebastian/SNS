@@ -6,7 +6,6 @@
 
       {.folder?}
 
-      {{!-- Folder: non-clickable heading + tree sub-list --}}
       <a class="nav-link py-1 folder-head" href="#">{collection.navigationTitle}</a>
       <ul class="subnav px-0">
         {.repeated section items}
