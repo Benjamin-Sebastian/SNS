@@ -1,62 +1,48 @@
-{.section items}<div id="secondaryNavWrapper" class="nav-wrapper" data-content-field="navigation-secondaryNav">
-  <nav id="secondaryNavigation" data-content-field="navigation-secondaryNav">
-    {.repeated section @}
-      {.collection?}
-        {.index?}
-        <div class="index{.if active} active{.end}{.section collection}{.if homepage} homepage{.end}{.end}" id="id{collection.id}">
-          <a href="{collection.fullUrl}">
-            <span>{collection.navigationTitle}</span>
-          </a>
-        </div>
-        {.or}
+<nav class="navbar navbar-expand-sm py-auto">
+  <ul class="navbar-nav w-100 justify-content-between mb-0 px-4">
+    {.repeated section items}
+    <li class="{.section active} active-link{.end}
+      {.if folderActive} active-link active-folder{.end} nav-item">
 
-        {.folder?}
-        <div class="folder{.if folderActive} active{.end}{.section collection}{.if homepage} homepage{.end}{.end}" id="id{collection.id}">
-          <div class="folder-toggle" data-href="{collection.fullUrl}">{collection.navigationTitle}</div>
-          <div class="subnav">
+      {.folder?}
+
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle py-1" href="#" role="button" data-bs-toggle="dropdown"
+          data-bs-display="static" aria-expanded="false">{collection.navigationTitle}</main>
+        </a>
+        <ul class="subnav dropdown-menu px-4">
           {.repeated section items}
-
-            {.collection?}
-            <div class="collection{.if active} active{.end}" id="id{collection.id}">
-              <a href="{collection.fullUrl}">
-                <span>{collection.navigationTitle}</span>
-              </a>
-            </div>
-            {.end}
-            {.section externalLink}
-            <div class="external">
-              <a href="{url}"{.section newWindow} target="_blank"{.end}>
-                <span>{title}</span>
-              </a>
-            </div>
-            {.end}
+          {.collection?}
+          <li class="{.section active} active-link{.end}">
+            <a href="{collection.fullUrl}" class="dropdown-item"><u>{collection.navigationTitle}</u> &rarr;</a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
           {.end}
-          </div>
-        </div>
-        {.or}
-
-          {.section collection}
-          <div class="collection{.if active} active{.end}{.if homepage} homepage{.end}" id="id{id}">
-            <a href="{fullUrl}">
-              <span>{navigationTitle}</span>
-            </a>
-          </div>
+          {.section externalLink}
+          <li class="external-link">
+            <a href="{url}" {.section newWindow} target="_blank" {.end}>{title}</a>
+          </li>
           {.end}
+          {.end}
+        </ul>
+      </div>
 
-        {.end}
-      {.end}
       {.or}
-        {.section externalLink}
-        <div class="external">
-          <a href="{url}"{.section newWindow} target="_blank"{.end}>
-            <span>{title}</span>
-          </a>
-        </div>
-        {.end}
+
+      {.section collection}
+      <a class="nav-link py-1" href="{fullUrl}"><u>{navigationTitle}</u> &rarr;</a>
+      {.end}
+
+      {.section externalLink}
+      <a class="nav-link py-1" href="{url}" {.section newWindow} target="_blank" {.end}><u>{title}</u> &rarr;</a>
+      {.end}
 
       {.end}
 
+    </li>
     {.end}
-  </nav>
-</div>{.end}
 
+  </ul>
+</nav>
