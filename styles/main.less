@@ -1,12 +1,14 @@
 // --- Variables ---
-@brand-gold:       #FFD700;
+@brand-gold: #FFD700;
 @brand-gold-hover: #FFC400;
-@tree-line-color:  #999;
-@border-radius:    4px;
-@transition-base:  all 0.3s ease;
+@tree-line-color: #999;
+@border-radius: 4px;
+@transition-base: all 0.3s ease;
 
 // --- Global Overrides ---
-html, body, #siteWrapper {
+html,
+body,
+#siteWrapper {
     overflow: visible !important;
 }
 
@@ -126,7 +128,11 @@ html, body, #siteWrapper {
 
             // Modern CSS :has selectors nested for clarity
             &:has(.dropdown-divider) {
-                &::before, &::after { display: none; }
+
+                &::before,
+                &::after {
+                    display: none;
+                }
             }
 
             &:has(+ li .dropdown-divider)::before {
@@ -134,4 +140,8 @@ html, body, #siteWrapper {
             }
         }
     }
+}
+
+.footer-inner {
+    width: fit-content;
 }
