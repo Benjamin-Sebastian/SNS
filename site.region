@@ -37,7 +37,7 @@
         </div>{.end}<!--
           -->
 
-        <div id="headerNav">
+        <div>
           <squarespace:navigation navigationId="mainNav" template="navigation" />
         </div>
       </div>
