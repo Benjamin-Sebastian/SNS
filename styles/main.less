@@ -1,8 +1,8 @@
 // --- Variables ---
 @brand-gold: #FFD700;
 @brand-gold-hover: #FFC400;
-@footer-bg: #1a1a1a;       // ← set your footer background here
-@footer-text: #cccccc;     // ← set your footer link/text color here
+@footer-bg: #1a1a1a; // ← set your footer background here
+@footer-text: #cccccc; // ← set your footer link/text color here
 @tree-line-color: #999;
 @border-radius: 4px;
 @transition-base: all 0.3s ease;
@@ -102,7 +102,7 @@ footer#footer {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;       // prevents overflow on narrow viewports
+    flex-wrap: wrap; // prevents overflow on narrow viewports
 
     width: 100%;
     max-width: 1200px;
@@ -129,21 +129,86 @@ footer#footer {
     justify-content: flex-end;
 
     .footer-nav {
-        // FIX: remove px-4 overflow by zeroing Bootstrap's built-in padding
-        // here rather than in the block template.
         padding: 0;
-        // FIX: constrain the nav so it can't exceed its column
         max-width: 100%;
         overflow-x: clip;
 
+        // Top-level list: horizontal row of nav groups
         .navbar-nav {
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;   // wraps gracefully on small screens
-            gap: 1.5rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+            list-style: none;
+            align-items: flex-start; // keep columns top-aligned
+            margin: 0;
+            padding: 0;
+        }
+
+        // --- Tree structure ---
+
+        // Folder heading: label only, not a link
+        .folder-head {
+            pointer-events: none;
+            font-weight: 600;
+            color: #fff;
+            display: block;
+            margin-bottom: 0.4em;
+        }
+
+        // Sub-list container
+        ul {
             list-style: none;
             margin: 0;
-            padding: 0;        // override Bootstrap's px-4 on the ul
+            padding-left: 1.5em;
+            position: relative;
+        }
+
+        .subnav {
+            position: relative;
+        }
+
+        .subnav li {
+            position: relative;
+            padding-left: 10px;
+        }
+
+        // 1. Vertical spine
+        .subnav li::before {
+            content: '';
+            position: absolute;
+            left: -1em;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background: @tree-line-color;
+        }
+
+        // 2. Horizontal branch
+        .subnav li::after {
+            content: '';
+            position: absolute;
+            left: -1em;
+            top: 0.8em;
+            width: 10px;
+            height: 1px;
+            background: @tree-line-color;
+        }
+
+        // 3. Hide lines for divider <li>
+        .subnav li:has(.dropdown-divider)::before,
+        .subnav li:has(.dropdown-divider)::after {
+            display: none;
+        }
+
+        // 4. Shorten spine on last actual link
+        .subnav li:last-child::before {
+            height: 0.8em;
+        }
+
+        // 5. Also shorten spine on the item just before a divider
+        .subnav li:has(+ li .dropdown-divider)::before {
+            height: 0.8em;
         }
     }
 

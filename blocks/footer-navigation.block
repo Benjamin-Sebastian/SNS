@@ -1,33 +1,30 @@
-<nav class="navbar navbar-expand-sm py-auto">
-  <ul class="navbar-nav w-100 justify-content-between mb-0 px-4">
+<nav class="navbar navbar-expand-sm py-auto footer-nav">
+  <ul class="navbar-nav mb-0">
     {.repeated section items}
     <li class="{.section active} active-link{.end}
       {.if folderActive} active-link active-folder{.end} nav-item">
 
       {.folder?}
 
-      <div class="dropdown">
-        <a class="nav-link dropdown-toggle py-1" href="#" role="button" data-bs-toggle="dropdown"
-          data-bs-display="static" aria-expanded="false">{collection.navigationTitle} <span class="arrow">&darr;</span>
-        </a>
-        <ul class="subnav dropdown-menu px-4">
-          {.repeated section items}
-          {.collection?}
-          <li class="{.section active} active-link{.end}">
-            <a href="{collection.fullUrl}" class="dropdown-item"><u>{collection.navigationTitle}</u> &rarr;</a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          {.end}
-          {.section externalLink}
-          <li class="external-link">
-            <a href="{url}" {.section newWindow} target="_blank" {.end}>{title}</a>
-          </li>
-          {.end}
-          {.end}
-        </ul>
-      </div>
+      {{!-- Folder: non-clickable heading + tree sub-list --}}
+      <a class="nav-link py-1 folder-head" href="#">{collection.navigationTitle}</a>
+      <ul class="subnav px-0">
+        {.repeated section items}
+        {.collection?}
+        <li class="{.section active} active-link{.end}">
+          <a href="{collection.fullUrl}" class="dropdown-item"><u>{collection.navigationTitle}</u> &rarr;</a>
+        </li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        {.end}
+        {.section externalLink}
+        <li class="external-link">
+          <a href="{url}" {.section newWindow} target="_blank" {.end}>{title}</a>
+        </li>
+        {.end}
+        {.end}
+      </ul>
 
       {.or}
 
