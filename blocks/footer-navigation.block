@@ -6,7 +6,7 @@
 
       {.folder?}
 
-      <div>
+      <div class="footer-folder">
         <a class="nav-link py-1 folder-head" href="#" role="button"
           data-bs-display="static" aria-expanded="false">{collection.navigationTitle}</main>
         </a>
