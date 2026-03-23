@@ -9,7 +9,8 @@
 html,
 body,
 #siteWrapper {
-    overflow: visible !important;
+    max-width: 100%;
+    overflow-x: hidden !important;
 }
 
 // --- Header Logic ---
@@ -79,51 +80,52 @@ body,
     }
 }
 
-// --- Footer Layout Fix ---
+// --- Footer Reset & Overflow Fix ---
+
+footer#footer {
+    width: 100%;
+    overflow-x: hidden; // Prevents anything from creating a side-scroll
+    background-color: inherit; // Or your specific footer color
+}
 
 .footer-inner {
-    display: flex !important; 
+    display: flex !important;
     flex-direction: row;
-    align-items: center; // Aligns logo and nav vertically in the center
-    justify-content: space-between; // Pushes logo to left, nav to right
-    width: 100%;
-    padding: 40px 20px;
-    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
 
-    & > * {
-        width: auto !important; 
-    }
+    // Crucial fixes for the "White Column":
+    width: 100%;
+    max-width: 1200px; // Or whatever your site's max-width is
+    margin: 0 auto; // Centers the footer content
+    padding: 40px 20px;
+    box-sizing: border-box !important; // Ensures padding stays INSIDE the 100% width
 }
 
 .footer-column-logo {
-    flex: 0 0 auto; // Don't grow, don't shrink
-    
+    flex: 0 0 auto;
+
     #logoImage img {
-        max-width: 180px; 
+        max-width: 150px; // Slightly smaller to ensure fit
         height: auto;
-        display: block;
     }
 }
 
 .footer-column-nav {
-    flex: 1; // Take up remaining space
+    flex: 1;
     display: flex;
-    justify-content: flex-end; // Align the nav element itself to the right
-    
-    #footerNav {
-        width: 100%;
-        max-width: fit-content; // Ensures the nav doesn't stretch across the whole page
+    justify-content: flex-end; // Pushes the nav to the far right
+
+    .footer-nav {
+        padding: 0; // Remove extra padding that might push width
+
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem; // Clean spacing between links
+            list-style: none;
+            margin: 0;
+        }
     }
 }
 
-// Ensure the actual links are horizontal
-.footer-nav {
-    .navbar-nav {
-        display: flex;
-        flex-direction: row;
-        gap: 20px; // Adds spacing between your nav items
-        margin-bottom: 0;
-        padding-left: 0;
-        list-style: none;
-    }
-}
