@@ -111,14 +111,51 @@ footer#footer {
 }
 
 .footer-column-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+
     #logoImage img {
         max-width: 150px;
         height: auto;
     }
+
+    // Site name shown below logo (always visible even when a logo image is set)
+    .footer-site-name {
+        margin: 0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #fff;
+        letter-spacing: 0.03em;
+    }
+
+    // Editable contact info block field
+    .footer-contact {
+        margin-top: 0.25rem;
+        font-size: 0.8rem;
+        color: @footer-text;
+        line-height: 1.6;
+
+        a {
+            color: @footer-text;
+            text-decoration: none;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        // Strip default SQS block-field margin
+        .sqs-block {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    }
 }
 
 .footer-column-nav {
-    justify-self: left; // grid equivalent of right-aligning within the cell
+    justify-self: end; // push nav to the right edge of its grid cell
 
     .footer-nav {
         padding: 0;
