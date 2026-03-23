@@ -9,8 +9,8 @@
 @shadow-color: rgba(0, 0, 0, 0.1);
 
 // --- Variables: Sizes & Transitions ---
-@logo-max-width: 10vw;
-@footer-max-width: 1200px;
+@logo-max-width: 15vw;
+@footer-max-width: 100%;
 @border-radius: 4px;
 @cta-radius: 50px;
 @transition-base: all 0.3s ease;
@@ -101,7 +101,7 @@ footer#footer {
     grid-template-columns: auto 1fr;
     align-items: center;
     gap: 2rem;
-    width: 100%;
+    width: max-content;
     max-width: @footer-max-width;
     margin: 0 !important;
     padding: 40px 20px;
