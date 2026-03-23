@@ -123,19 +123,18 @@ footer#footer {
 
 .footer-column-nav {
     flex: 1;
-    // FIX: min-width:0 allows the flex child to shrink below its content
-    // size, preventing it from blowing out the footer width.
+    // min-width:0 allows shrinking below content size.
+    // No overflow:hidden — that was clipping leftmost nav items because
+    // justify-content:flex-end overflows toward the start (left).
+    // space-between on .footer-inner already handles logo/nav separation.
     min-width: 0;
-    // FIX: clips the nowrap nav at this column's boundary so it cannot
-    // bleed leftward over the logo when right-aligned.
-    overflow: hidden;
     display: flex;
     justify-content: flex-end;
 
     .footer-nav {
         padding: 0;
-        width: 100%;
-        max-width: 100%;
+        // min-width:0 so this flex child can shrink below its content size
+        min-width: 0;
         overflow-x: clip;
 
         // Top-level list: horizontal row of nav groups
@@ -143,7 +142,7 @@ footer#footer {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
-            gap: 2rem;
+            gap: 1.5rem;
             list-style: none;
             align-items: flex-start; // keep columns top-aligned
             margin: 0;
