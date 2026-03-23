@@ -114,6 +114,8 @@ footer#footer {
 
 .footer-column-logo {
     flex: 0 0 auto;
+    position: relative; // establishes stacking context
+    z-index: 2;         // renders above the Bootstrap navbar stacking context
 
     #logoImage img {
         max-width: 150px;
