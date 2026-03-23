@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm py-auto">
+<nav class="navbar navbar-expand-sm py-auto footer-nav">
   <ul class="navbar-nav w-100 justify-content-between mb-0 px-4">
     {.repeated section items}
     <li class="{.section active} active-link{.end}
@@ -6,7 +6,7 @@
 
       {.folder?}
 
-      <div class="footer-folder">
+      <div>
         <a class="nav-link py-1 folder-head" href="#" role="button"
           data-bs-display="static" aria-expanded="false">{collection.navigationTitle}</main>
         </a>
