@@ -1,3 +1,34 @@
+// --- Variables ---
+@brand-gold:       #FFD700;
+@brand-gold-hover: #FFC400;
+@tree-line-color:  #999;
+@border-radius:    4px;
+@transition-base:  all 0.3s ease;
+
+// --- Global Overrides ---
+html, body, #siteWrapper {
+    overflow: visible !important;
+}
+
+// --- Header Logic ---
+#header {
+    position: sticky !important;
+    top: 0;
+    z-index: 1020;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    // Grouping sticky states
+    &.shrink,
+    &.hidden,
+    &.invisible {
+        position: sticky !important;
+        opacity: 1 !important;
+    }
+}
+
+// --- Main Navigation ---
 #headerNav {
     .navbar-nav {
         align-items: center;
@@ -8,46 +39,45 @@
             align-items: center;
         }
 
-        .dropdown-toggle {
-
-            &::after {
-                display: none !important;
-            }
+        .dropdown-toggle::after {
+            display: none !important;
         }
 
         .dropdown-menu {
             margin-top: 0 !important;
             border-top: none;
-            border-radius: 0 0 4px 4px; // Concise way to set top-left/right to 0
+            border-radius: 0 0 @border-radius @border-radius;
         }
 
+        // The CTA "Button" (Last Nav Item)
+        .nav-item:last-child {
+            background-color: @brand-gold;
+            border-radius: 50px;
+            padding: 5px 20px;
+            transition: @transition-base;
+            margin-left: 10px;
+
+            &:hover {
+                background-color: @brand-gold-hover;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            a {
+                color: #000 !important;
+                font-weight: bold;
+                text-decoration: none !important;
+
+                // Remove the arrow (→) if present
+                u::after {
+                    display: none;
+                }
+            }
+        }
     }
-    
 }
 
-html,
-body,
-#siteWrapper {
-    overflow: visible !important;
-}
-
-#header {
-    position: sticky !important;
-    top: 0;
-    z-index: 1020;
-    // Counteract any show-on-scroll JS transform/opacity tricks
-    transform: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-
-    &.shrink,
-    &.hidden,
-    &.invisible {
-        position: sticky !important;
-        opacity: 1 !important;
-    }
-}
-
+// --- Footer Tree Navigation ---
 .footer-nav {
     .folder-head {
         pointer-events: none;
@@ -56,86 +86,52 @@ body,
     ul {
         list-style: none;
         margin: 0;
-        padding-left: 1.5em; /* Adjusted for better spacing */
+        padding-left: 1.5em;
         position: relative;
     }
 
-    /* Target only the sub-navigation list */
     .subnav {
         position: relative;
+
+        li {
+            position: relative;
+            padding-left: 10px;
+
+            // 1. The Vertical Spine
+            &::before {
+                content: '';
+                position: absolute;
+                left: -1em;
+                top: 0;
+                width: 1px;
+                height: 100%;
+                background: @tree-line-color;
+            }
+
+            // 2. The Horizontal Branch
+            &::after {
+                content: '';
+                position: absolute;
+                left: -1em;
+                top: 0.8em;
+                width: 10px;
+                height: 1px;
+                background: @tree-line-color;
+            }
+
+            // 3. Last Child / Divider Logic
+            &:last-child::before {
+                height: 0.8em; // Shorten spine
+            }
+
+            // Modern CSS :has selectors nested for clarity
+            &:has(.dropdown-divider) {
+                &::before, &::after { display: none; }
+            }
+
+            &:has(+ li .dropdown-divider)::before {
+                height: 0.8em;
+            }
+        }
     }
-
-   .subnav li {
-        position: relative;
-        padding-left: 10px;
-    }
-
-    /* 1. The Vertical Spine */
-    .subnav li::before {
-        content: '';
-        position: absolute;
-        left: -1em;
-        top: 0;
-        width: 1px;
-        height: 100%; /* Default: connect to the item below */
-        background: #999;
-    }
-
-    /* 2. The Horizontal Branch */
-    .subnav li::after {
-        content: '';
-        position: absolute;
-        left: -1em;
-        top: 0.8em; /* Centers the branch on the text */
-        width: 10px;
-        height: 1px;
-        background: #999;
-    }
-
-    /* 3. FIX: Hide lines for the divider items */
-    /* This targets the <li> that contains the <hr> */
-    .subnav li:has(.dropdown-divider)::before,
-    .subnav li:has(.dropdown-divider)::after {
-        display: none;
-    }
-
-    /* 4. FIX: Shorten the spine on the last ACTUAL link */
-    /* If your browser doesn't support :has, we target the last-child 
-       and ensure the line stops at the branch */
-    .subnav li:last-child::before {
-        height: 0.8em; 
-    }
-
-    /* 5. Cleanup: If a divider is the last item, 
-       make the item BEFORE it also stop its line early */
-    .subnav li:has(+ li .dropdown-divider)::before {
-        height: 0.8em;
-    }
-}
-
-#headerNav .navbar-nav .nav-item:last-child {
-    /* Create the button shape */
-    background-color: #FFD700; /* Gold/Yellow */
-    border-radius: 50px;       /* Pill shape */
-    padding: 5px 20px;         /* Spacing inside the button */
-    transition: all 0.3s ease;
-    margin-left: 10px;         /* Space from previous links */
-}
-
-#headerNav .navbar-nav .nav-item:last-child:hover {
-    background-color: #FFC400; /* Slightly darker on hover */
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-/* Style the link inside the button */
-#headerNav .navbar-nav .nav-item:last-child a {
-    color: #000 !important;    /* Dark text for contrast */
-    font-weight: bold;
-    text-decoration: none !important; /* Remove underline */
-}
-
-/* Remove the arrow (→) from only this button if desired */
-#headerNav .navbar-nav .nav-item:last-child a u::after {
-    display: none;
 }
