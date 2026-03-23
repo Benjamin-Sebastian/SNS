@@ -294,7 +294,7 @@
           -->
 
         <div id="headerNav">
-          <squarespace:navigation navigationId="mainNav" template="footer-navigatoin" />
+          <squarespace:navigation navigationId="mainNav" template="footer-navigation" />
         </div>
       </div>
     </footer>
