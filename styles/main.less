@@ -110,11 +110,15 @@ footer#footer {
     box-sizing: border-box !important;
 }
 
-.footer-column-logo {
+.footer-column-left {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+
+    * {
+        width: fit-content
+    }
 
     #logoImage img {
         max-width: 150px;

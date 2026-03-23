@@ -283,7 +283,7 @@
     <footer id="footer" role="contentinfo">
       <div class="footer-inner">
 
-        <div class="footer-column-logo">
+        <div class="footer-column-left">
           {.section website}
           <div id="{.if logoImageUrl}logoWrapper{.or}siteTitleWrapper{.end}" class="wrapper"
             data-content-field="site-title">
