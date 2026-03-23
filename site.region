@@ -295,11 +295,13 @@
           </div>
           {.end}
         </div>
-        <div class="col-md-9 footer-nav-col">
-          <div id="headerNav">
+
+        <div class="footer-column-nav">
+          <div id="footerNav">
             <squarespace:navigation navigationId="mainNav" template="footer-navigation" />
           </div>
         </div>
+
       </div>
     </footer>
 
