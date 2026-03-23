@@ -1,6 +1,8 @@
 // --- Variables ---
 @brand-gold: #FFD700;
 @brand-gold-hover: #FFC400;
+@footer-bg: #1a1a1a;       // ← set your footer background here
+@footer-text: #cccccc;     // ← set your footer link/text color here
 @tree-line-color: #999;
 @border-radius: 4px;
 @transition-base: all 0.3s ease;
@@ -10,7 +12,10 @@ html,
 body,
 #siteWrapper {
     max-width: 100%;
-    overflow-x: hidden !important;
+    // FIX: overflow-x: hidden kills position:sticky on all descendants.
+    // overflow-x: clip prevents horizontal scrolling without creating a
+    // scroll container, so sticky headers continue to work.
+    overflow-x: clip !important;
 }
 
 // --- Header Logic ---
@@ -84,8 +89,12 @@ body,
 
 footer#footer {
     width: 100%;
-    overflow-x: hidden; // Prevents anything from creating a side-scroll
-    background-color: inherit; // Or your specific footer color
+    // FIX: Use clip here too so the footer itself can't trigger x-scroll
+    overflow-x: clip;
+    // FIX: Set an explicit background color — "inherit" resolves to white
+    // when no ancestor declares one.
+    background-color: @footer-bg;
+    color: @footer-text;
 }
 
 .footer-inner {
@@ -93,39 +102,57 @@ footer#footer {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;       // prevents overflow on narrow viewports
 
-    // Crucial fixes for the "White Column":
     width: 100%;
-    max-width: 1200px; // Or whatever your site's max-width is
-    margin: 0 auto; // Centers the footer content
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 40px 20px;
-    box-sizing: border-box !important; // Ensures padding stays INSIDE the 100% width
+    box-sizing: border-box !important;
 }
 
 .footer-column-logo {
     flex: 0 0 auto;
 
     #logoImage img {
-        max-width: 150px; // Slightly smaller to ensure fit
+        max-width: 150px;
         height: auto;
     }
 }
 
 .footer-column-nav {
     flex: 1;
+    // FIX: min-width:0 allows the flex child to shrink below its content
+    // size, preventing it from blowing out the footer width.
+    min-width: 0;
     display: flex;
-    justify-content: flex-end; // Pushes the nav to the far right
+    justify-content: flex-end;
 
     .footer-nav {
-        padding: 0; // Remove extra padding that might push width
+        // FIX: remove px-4 overflow by zeroing Bootstrap's built-in padding
+        // here rather than in the block template.
+        padding: 0;
+        // FIX: constrain the nav so it can't exceed its column
+        max-width: 100%;
+        overflow-x: clip;
 
         .navbar-nav {
             display: flex;
             flex-direction: row;
-            gap: 1.5rem; // Clean spacing between links
+            flex-wrap: wrap;   // wraps gracefully on small screens
+            gap: 1.5rem;
             list-style: none;
             margin: 0;
+            padding: 0;        // override Bootstrap's px-4 on the ul
+        }
+    }
+
+    a {
+        color: @footer-text;
+        text-decoration: none;
+
+        &:hover {
+            color: #fff;
         }
     }
 }
-

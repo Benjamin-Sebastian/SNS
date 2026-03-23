@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm py-auto footer-nav">
+<nav class="navbar navbar-expand-sm py-auto">
   <ul class="navbar-nav w-100 justify-content-between mb-0 px-4">
     {.repeated section items}
     <li class="{.section active} active-link{.end}
@@ -6,11 +6,11 @@
 
       {.folder?}
 
-      <div>
-        <a class="nav-link py-1 folder-head" href="#" role="button"
-          data-bs-display="static" aria-expanded="false">{collection.navigationTitle}
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle py-1" href="#" role="button" data-bs-toggle="dropdown"
+          data-bs-display="static" aria-expanded="false">{collection.navigationTitle} <span class="arrow">&darr;</span>
         </a>
-        <ul class="subnav px-4">
+        <ul class="subnav dropdown-menu px-4">
           {.repeated section items}
           {.collection?}
           <li class="{.section active} active-link{.end}">
