@@ -8,7 +8,6 @@ document.addEventListener('shown.bs.dropdown', function (e) {
     const navItem = toggle.closest('.nav-item');
     const isLast = !navItem.nextElementSibling;
 
-    // position: fixed escapes all CSS contexts; coordinates are viewport-relative
     menu.style.position = 'fixed';
     menu.style.top = headerRect.bottom + 'px';
     menu.style.transform = 'none';
@@ -20,26 +19,25 @@ document.addEventListener('shown.bs.dropdown', function (e) {
         menu.style.left = toggleRect.left + 'px';
         menu.style.right = 'auto';
     }
-    var arrows = document.getElementsByClassName("arrow");
-    for (var i = 0; i < arrows.length; i++) {
-        arrows[i].innerText = "\u{2191}";
-    }
+
+
+    const arrow = toggle.querySelector('.arrow');
+    if (arrow) arrow.innerText = "\u{2191}"; 
 });
 
 document.addEventListener('hidden.bs.dropdown', function (e) {
     const toggle = e.relatedTarget;
     if (!toggle) return;
+    
     const menu = toggle.closest('.dropdown')?.querySelector('.dropdown-menu');
-    if (!menu) return;
-
-    // Reset so Popper starts clean on next open
-    menu.style.position = '';
-    menu.style.top = '';
-    menu.style.left = '';
-    menu.style.right = '';
-    menu.style.transform = '';
-    var arrows = document.getElementsByClassName("arrow");
-    for (var i = 0; i < arrows.length; i++) {
-        arrows[i].innerText = "\u{2193}";
+    if (menu) {
+        menu.style.position = '';
+        menu.style.top = '';
+        menu.style.left = '';
+        menu.style.right = '';
+        menu.style.transform = '';
     }
+
+    const arrow = toggle.querySelector('.arrow');
+    if (arrow) arrow.innerText = "\u{2193}";
 });
