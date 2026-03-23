@@ -98,12 +98,10 @@ footer#footer {
 }
 
 .footer-inner {
-    display: flex !important;
-    flex-direction: row;
+    display: grid !important;
+    grid-template-columns: auto 1fr; // logo: natural width; nav: fills remainder
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap; // prevents overflow on narrow viewports
-    gap: 2rem; // guarantees clearance between logo and nav columns
+    gap: 2rem;
 
     width: 100%;
     max-width: 1200px;
@@ -113,10 +111,6 @@ footer#footer {
 }
 
 .footer-column-logo {
-    flex: 0 0 auto;
-    position: relative; // establishes stacking context
-    z-index: 2;         // renders above the Bootstrap navbar stacking context
-
     #logoImage img {
         max-width: 150px;
         height: auto;
@@ -124,14 +118,7 @@ footer#footer {
 }
 
 .footer-column-nav {
-    flex: 1;
-    // min-width:0 allows shrinking below content size.
-    // No overflow:hidden — that was clipping leftmost nav items because
-    // justify-content:flex-end overflows toward the start (left).
-    // space-between on .footer-inner already handles logo/nav separation.
-    min-width: 0;
-    display: flex;
-    justify-content: flex-end;
+    justify-self: end; // grid equivalent of right-aligning within the cell
 
     .footer-nav {
         padding: 0;
