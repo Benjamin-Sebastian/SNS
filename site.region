@@ -296,8 +296,8 @@
           <h2 class="footer-site-name">{siteTitle}</h2>
           {.end}
           <div class="footer-contact">
-            <p>✆ Call/text: (651) 252-1863</p>
-            <p>🖂 Email: info@solutionsnotsuspensions.org</p>
+            <p>✆ Call/text: <a href="tel:16512521863">(651) 252-1863</a></p>
+            <p>🖂 Email: <a href="mailto:info@solutionsnotsuspensions.org">info@solutionsnotsuspensions.org</a></p>
           </div>
         </div>
 
