@@ -296,7 +296,8 @@
           <h2 class="footer-site-name">{siteTitle}</h2>
           {.end}
           <div class="footer-contact">
-            <squarespace:block-field id="footerContactInfo" columns="12" label="Footer Contact Info" />
+            <p>✆ Call/text: (651) 252-1863</p>
+            <p>🖂 Email: info@solutionsnotsuspensions.org</p>
           </div>
         </div>
 
