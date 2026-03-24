@@ -15,6 +15,11 @@
 @cta-radius: 50px;
 @transition-base: all 0.3s ease;
 
+
+@hero-image-src: url("https://live.staticflickr.com/8079/8345962959_ba5e0e89e8_b.jpg");
+
+
+
 // --- Global Overrides ---
 html,
 body,
@@ -277,7 +282,7 @@ footer#footer {
 
 
 .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEiEO1cLmQeYeARShN8C3FbHisMR8i-hBHFg&s");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), @hero-image-src;
     height: 50%;
     background-position: center;
     background-repeat: no-repeat;
