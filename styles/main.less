@@ -294,28 +294,33 @@ footer#footer {
 .hero-image {
     height: 50vh;
     width: 100vw;
-    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
-        url("https://images.squarespace-cdn.com/content/v1/69a080f048666d0387819567/ac806fd5-81ad-4c6b-b2a1-23a0361f0045/hero-image.png?format=2500w");
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), @hero-image-src;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
 
-    left: 50%; right: 50%;
+    left: 50%;
+    right: 50%;
+    top: 0%;
     margin-left: -50vw;
     margin-right: -50vw;
     padding-left: -10vw;
     padding-right: -10vw;
+    padding-top: -10vh;
 
     /* Flexbox settings */
     display: flex;
-    align-items: center;      /* Vertically centers the content */
-    justify-content: flex-start; /* Aligns content to the left */
-    padding-left: 10%;        /* Keeps text from hitting the very edge */
+    align-items: center;
+    /* Vertically centers the content */
+    justify-content: flex-start;
+    /* Aligns content to the left */
+    padding-left: 10%;
+    /* Keeps text from hitting the very edge */
     color: white;
 
     .hero-text {
-        text-align: left; 
+        text-align: left;
         color: rgb(0, 0, 0);
     }
 }
