@@ -292,12 +292,24 @@ footer#footer {
 
 
 .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), @hero-image-src;
-    height: 50%;
+    /* Use a viewport unit or a fixed pixel height */
+    height: 50vh; 
+    
+    /* Ensure the URL includes the format parameter */
+    background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), 
+                      url("https://images.squarespace-cdn.com/content/v1/69a080f048666d0387819567/ac806fd5-81ad-4c6b-b2a1-23a0361f0045/hero-image.png?format=2500w");
+    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    
+    /* Flexbox helps center the text inside the hero */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
 }
 
 .hero-text {
