@@ -19,9 +19,13 @@
 
 // --- Image embeddings ---
 
-@sqsp-image-base: "https://images.squarespace-cdn.com/content/v1/@page-id";
+@page-id: "69a080f048666d0387819567";
 
-@hero-image-src: url("@sqsp-image-base/ac806fd5-81ad-4c6b-b2a1-23a0361f0045/hero-image.png");
+@sqsp-image-base: "https://images.squarespace-cdn.com/content/v1/@{page-id}";
+
+//image src = @sqsp-image-base/[unique-asset-id]/image.ext
+
+@hero-image-src: url("@{sqsp-image-base}/ac806fd5-81ad-4c6b-b2a1-23a0361f0045/hero-image.png");
 
 
 
