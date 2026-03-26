@@ -292,31 +292,24 @@ footer#footer {
 
 
 .hero-image {
-    /* Use a viewport unit or a fixed pixel height */
-    height: 50vh; 
-    
-    /* Ensure the URL includes the format parameter */
-    background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), 
-                      url("https://images.squarespace-cdn.com/content/v1/69a080f048666d0387819567/ac806fd5-81ad-4c6b-b2a1-23a0361f0045/hero-image.png?format=2500w");
-    
+    height: 50vh;
+    width: 100vw;
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
+        url("https://images.squarespace-cdn.com/content/v1/69a080f048666d0387819567/ac806fd5-81ad-4c6b-b2a1-23a0361f0045/hero-image.png?format=2500w");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    
-    /* Flexbox helps center the text inside the hero */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-}
 
-.hero-text {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(115, 255, 0);
+    /* Flexbox settings */
+    display: flex;
+    align-items: center;      /* Vertically centers the content */
+    justify-content: flex-start; /* Aligns content to the left */
+    padding-left: 10%;        /* Keeps text from hitting the very edge */
+    color: white;
+
+    .hero-text {
+        text-align: left; 
+        color: rgb(0, 0, 0);
+    }
 }
