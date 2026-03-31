@@ -357,16 +357,20 @@ footer#footer {
 
     .card {
         flex: 1;
-        min-width: 0; // Allows the card to shrink instead of causing horizontal scroll
+        min-width: 0; 
         display: flex;
         flex-direction: column;
         background-color: @card-bg;
         border-radius: 12px;
-        width: 100%; // Changed from fit-content to allow flex shrinking
+        width: 100%; 
         container-type: inline-size;
         box-shadow: @shadow-light;
         
-        padding: 12px;
+        // 1. ADD BOX-SIZING
+        box-sizing: border-box; 
+        
+        // 2. USE RELATIVE PADDING (scales with the card)
+        padding: 3cqw;
 
         // Compiles to .card-icon
         &-icon {
@@ -410,15 +414,14 @@ footer#footer {
             margin: 0;
         }
 
-        // Compiles to .card-cta
-        &-cta {
+       &-cta {
             margin-top: auto;
-            padding-top: 12px;
+            padding-top: 12px; // Vertical padding can remain fixed
             font-weight: 600;
-            white-space: nowrap; // Forces one line
+            white-space: nowrap; 
             
-            // Scales relative to card width to prevent overflowing or hiding text
-            font-size: min(0.9rem, 3.2cqw); 
+            // 3. REDUCE CQW MULTIPLIER SLIGHTLY
+            font-size: min(0.9rem, 2.6cqw); 
             
             color: @text-dark;
             text-decoration: underline;
@@ -426,7 +429,6 @@ footer#footer {
             display: block;
             text-align: center;
             width: 100%;
-
         }
     }
 }
