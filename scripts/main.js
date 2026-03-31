@@ -41,3 +41,10 @@ document.addEventListener('hidden.bs.dropdown', function (e) {
     const arrow = toggle.querySelector('.arrow');
     if (arrow) arrow.innerText = "\u{2193}";
 });
+
+
+// window.addEventListener("load", (event) => {
+//   const preBread = document.getElementById("yui_3_17_2_1_1774715020050_112").firstChild;
+
+  
+// });
