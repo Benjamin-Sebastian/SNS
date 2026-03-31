@@ -357,18 +357,18 @@ footer#footer {
 
     .card {
         flex: 1;
-        min-width: 0; 
+        min-width: 0;
         display: flex;
         flex-direction: column;
         background-color: @card-bg;
         border-radius: 12px;
-        width: 100%; 
+        width: 100%;
         container-type: inline-size;
         box-shadow: @shadow-light;
-        
+
         // 1. ADD BOX-SIZING
-        box-sizing: border-box; 
-        
+        box-sizing: border-box;
+
         // 2. USE RELATIVE PADDING (scales with the card)
         padding: 3cqw;
 
@@ -402,6 +402,8 @@ footer#footer {
             font-weight: 600;
             font-size: clamp(0.9rem, 6cqw, 1.4rem);
             margin: 0;
+            padding: 3cqw;
+
         }
 
         // Compiles to .card-desc
@@ -412,17 +414,19 @@ footer#footer {
             color: @text-muted;
             line-height: 1.4;
             margin: 0;
+            padding: 3cqw;
+
         }
 
-       &-cta {
+        &-cta {
             margin-top: auto;
             padding-top: 12px; // Vertical padding can remain fixed
             font-weight: 600;
-            white-space: nowrap; 
-            
+            white-space: nowrap;
+
             // 3. REDUCE CQW MULTIPLIER SLIGHTLY
-            font-size: min(0.9rem, 2.6cqw); 
-            
+            font-size: min(0.9rem, 2.6cqw);
+
             color: @text-dark;
             text-decoration: underline;
             cursor: pointer;
