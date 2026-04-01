@@ -118,57 +118,6 @@
     {.collectionTypeNameEquals? blog}
     <squarespace:query collection="{collection.urlId}" featured="true" limit="5">
       {.section items}
-      <div class="sqs-featured-posts-gallery">
-
-        <div class="gallery-wrapper">
-
-          <!--FULL SIZE IMAGES-->
-
-          <div class="slides-controls">
-            <div class="posts">
-              {.repeated section @}
-
-              <!--SLIDE-->
-
-              <div class="post{.main-image?}{.or} no-main-image{.end} content-fill" data-slide-id="{id}">
-
-                <div class="title-desc-wrapper">
-                  <time class="dt-published published post-date" datetime="{addedOn|date %F}" pubdate>{addedOn|datetime
-                    date:long}</time>
-                  <div class="post-category">{.section categories}{.repeated section @}{@}{.alternates with},
-                    {.end}{.end}</div>
-                  <div class="post-author">{.section author}{displayName}{.end}</div>
-                  {.section title}<div class="post-title"><a href="{fullUrl}">{@|truncate 48}</a></div>{.end}
-                  {.excerpt?}<div class="post-excerpt">{excerpt}</div>{.end}
-                  <a href="{fullUrl}" class="view-post" data-view-post="{localizedStrings.viewPost}"></a>
-                </div>
-
-                <div class="color-overlay"></div>
-
-                {.main-image?}
-                <img data-load="viewport" {@|image-meta}>
-                {.end}
-              </div>
-
-              {.end}
-            </div>
-
-            {.section 1}
-            <!--PREVIOUS/NEXT CONTROLS-->
-            <span class="arrow previous-slide"></span>
-            <span class="arrow next-slide"></span>
-            {.end}
-
-            <!--CIRCLES-->
-            <div class="circles gallery-nav">
-              {.repeated section @}
-              <span class="circle"></span>
-              {.end}
-            </div>
-          </div>
-        </div>
-
-      </div>
       {.or}
       {.section collection}
 
