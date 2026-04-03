@@ -19,14 +19,19 @@
 
 // --- Image embeddings ---
 
-@page-id: "69a080f048666d0387819567";
+// @page-id: "69a080f048666d0387819567";
 
-@sqsp-image-base: "https://images.squarespace-cdn.com/content/v1/@{page-id}";
+// @sqsp: "https://images.squarespace-cdn.com/content/v1/@{page-id}";
 
-//image src = @sqsp-image-base/[unique-asset-id]/image.ext
+//image src = @sqsp/[unique-asset-id]/image.ext
 
-@hero-image-src: url("@{sqsp-image-base}/bda83ad3-763f-4fb4-8504-9b75f76ca545/sns-hero-blank.png?format=2500w");
+// @hero-image-src: url("@{sqsp}/bda83ad3-763f-4fb4-8504-9b75f76ca545/sns-hero-blank.png?format=2500w");
 
+@gdrive: "https://drive.google.com/thumbnail?id";
+
+//image src = @{gdrive}=[image_id]
+
+@hero-image-src: url("@{gdrive}=1OfAiOSEUBHGTvht2HyFBCw3lfv1ur3j5");
 
 
 // --- Global Overrides ---
