@@ -33,13 +33,20 @@
 
 // @hero-image-src: url("@{gdrive}/1-VQBLRalVCAj8T6wLrewyaAiENdIiALV=s1220");
 
-.set-gdrive-image(@id) {
+.set-gdrive-image(@url) {
+    // background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
+    // url("https://lh3.googleusercontent.com/d/@{id}=s1200");
     background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
-    url("https://lh3.googleusercontent.com/d/@{id}=s1200");
+    url("@url");
 }
 
-@hero-img-id: "1-VQBLRalVCAj8T6wLrewyaAiENdIiALV";
-@mission-img-id: "1a-824krZyvDCjGCLaFsyLaRZNZjio0w0";
+// @hero-img-id: "1-VQBLRalVCAj8T6wLrewyaAiENdIiALV";
+// @mission-img-id: "1a-824krZyvDCjGCLaFsyLaRZNZjio0w0";
+
+@hero-img-id: "https://images.squarespace-cdn.com/content/69a080f048666d0387819567/bda83ad3-763f-4fb4-8504-9b75f76ca545/sns-hero-blank.png?content-type=image%2Fpng";
+@mission-img-id: "https://images.squarespace-cdn.com/content/69a080f048666d0387819567/350eb4ef-e4e4-4cec-867b-7fc76904826d/Outlook-2lurrff3.jpg?content-type=image%2Fjpeg";
+
+
 
 // --- Global Overrides ---
 html,
