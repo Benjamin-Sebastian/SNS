@@ -34,10 +34,12 @@
 // @hero-image-src: url("@{gdrive}/1-VQBLRalVCAj8T6wLrewyaAiENdIiALV=s1220");
 
 .set-gdrive-image(@id) {
-  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("https://lh3.googleusercontent.com/d/@{id}=s1200");
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
+    url("https://lh3.googleusercontent.com/d/@{id}=s1200");
 }
 
-@hero-id: "1-VQBLRalVCAj8T6wLrewyaAiENdIiALV";
+@hero-img-id: "1-VQBLRalVCAj8T6wLrewyaAiENdIiALV";
+@mission-img-id: "1a-824krZyvDCjGCLaFsyLaRZNZjio0w0";
 
 // --- Global Overrides ---
 html,
@@ -304,7 +306,13 @@ footer#footer {
 .hero-image {
     height: 50vh;
     width: 100vw;
-    .set-gdrive-image(@hero-id);
+    .set-gdrive-image(@hero-img-id);
+
+    &#mission-img {
+        .set-gdrive-image(@mission-img-id);
+
+    }
+
     // background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), @hero-image-src;
     background-position: center;
     background-repeat: no-repeat;
@@ -460,9 +468,9 @@ footer#footer {
     align-items: center;
     display: flex;
     justify-content: center;
+
     iframe {
         width: 99.5%;
         height: 99%;
     }
 }
-
