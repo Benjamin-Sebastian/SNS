@@ -308,10 +308,6 @@ footer#footer {
     width: 100vw;
     .set-gdrive-image(@hero-img-id);
 
-    &#mission-img {
-        .set-gdrive-image(@mission-img-id);
-
-    }
 
     // background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), @hero-image-src;
     background-position: center;
@@ -335,6 +331,23 @@ footer#footer {
     padding-left: 10%;
     /* Keeps text from hitting the very edge */
     color: white;
+
+
+    &#mission-img {
+        .set-gdrive-image(@mission-img-id);
+        background-position: top;
+
+        justify-content: center;
+        align-items: flex-end;
+        padding-left: 0;
+        padding-bottom: 5vh;
+
+        .hero-text {
+            text-align: center;
+            color: rgb(255, 255, 255);
+            width: 100%;
+        }
+    }
 
     .hero-text {
         text-align: left;
