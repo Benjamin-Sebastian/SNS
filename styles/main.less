@@ -27,12 +27,15 @@
 
 // @hero-image-src: url("@{sqsp}/bda83ad3-763f-4fb4-8504-9b75f76ca545/sns-hero-blank.png?format=2500w");
 
-@gdrive: "https://lh3.googleusercontent.com/d";
+// @gdrive: "https://lh3.googleusercontent.com/d";
 
 //image src = @{gdrive}/[image_id]
 
-@hero-image-src: url("@{gdrive}/1-VQBLRalVCAj8T6wLrewyaAiENdIiALV=s1220");
+// @hero-image-src: url("@{gdrive}/1-VQBLRalVCAj8T6wLrewyaAiENdIiALV=s1220");
 
+.set-gdrive-image(@id) {
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("https://lh3.googleusercontent.com/d/@{id}=s1200");
+}
 
 // --- Global Overrides ---
 html,
@@ -299,7 +302,8 @@ footer#footer {
 .hero-image {
     height: 50vh;
     width: 100vw;
-    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), @hero-image-src;
+    .set-gdrive-image(attr(id));
+    // background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), @hero-image-src;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
